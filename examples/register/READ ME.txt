@@ -1,0 +1,2 @@
+Extract all files and folders and paste into a new folder before editing.
+Double clich the instruction to open in a browser

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Job Application Form</title>
+<!-- Add to Head -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script src="//s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js" type="text/javascript"></script>
+<script src='//www.google.com/recaptcha/api.js'></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet" />
+<script language="JavaScript" type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<link rel="stylesheet" href="assets/css/html5reset.css" media="all">
+<link rel="stylesheet" href="assets/css/col.css" media="all">
+<link rel="stylesheet" href="assets/css/1cols.css" media="all">
+<link rel="stylesheet" href="assets/css/2cols.css" media="all">
+<!-- jQuery Form Validation code -->
+
+    <script src="Scripts/jquery.js" type="text/javascript"></script>
+
+    
+
+    <script src="Scripts/jquery.alerts.js" type="text/javascript"></script>
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+//            $("#dvOther").slideUp("1");
+//            $("#divOtherTechSkills").slideUp("1");
+//            $("#divOSOthers").slideUp("1");
+//            $("#dvReason").slideUp("1");
+
+
+
+            String.prototype.trim = function() {
+                return this.replace(/^\s+|\s+$/g, "");
+            };
+            //            $("#txtBirthDate").datepicker({
+            //                showOn: 'button',
+            //                //showButtonPanel: true,
+            //                buttonImage: 'Images/calendar.gif',
+            //                buttonImageOnly: true,
+            //                changeYear: true,
+            //                //changeMonth: true,
+            //                dateFormat: 'dd/mm/yy',
+            //                defaultDate: '01/01/1985',
+            //                buttonText: 'Show Date Picker',
+            //                maxDate: '01/01/2000'
+            //            });
+
+            $(".txtaddress").keypress(function(e) {
+                
+                var id = $(this).attr("id");
+                var keynum;
+                keynum = e.which;
+                if ($(".txtaddress").val().length > 0 && keynum == 32) {
+                    return true;
+                }
+                else if ($(".txtaddress").val().length == 0 && keynum == 32) {
+                    return false;
+                }
+                return true;
+            });
+
+            $(":text").keypress(function(e) {
+                var id = $(this).attr("id");
+
+
+                var keynum;
+                var keychar;
+                var check;
+                var result = true;
+                keynum = e.which;
+
+
+                if ($(":text").val().length > 0 && keynum == 32) {
+                    return true;
+                }
+                else if ($(":text").val().length == 0 && keynum == 32) {
+                    return false;
+                }
+                
+                keychar = String.fromCharCode(keynum);
+                if (id == "txtMobileNo") {
+
+                    if ((keychar >= 0 && keychar <= 9) || keychar == "(" || keychar == ")" || keychar == "-" || keynum == 8)
+                        return true;
+                    else {
+                        if (keynum == 9) {
+                            document.getElementById("txtAltMobNo").focus();
+                            //$("#txtAltMobNo").focus();
+                        }
+                        return false;
+                    }
+                    //check = /[0-9\x00-\x1F\x7F]/;
+                }
+                else if (id == "txtAltMobNo") {
+
+                    if ((keychar >= 0 && keychar <= 9) || keychar == "(" || keychar == ")" || keychar == "-" || keynum == 8) {
+
+                        return true;
+                    }
+                    else {
+
+                        if (keynum == 9) {
+                            document.getElementById('txtPuneAddress').focus();
+                            //$("#txtAltMobNo").focus();
+                        }
+                        return false;
+                    }
+                    //check = /[0-9\x00-\x1F\x7F]/;
+                }
+
+
+                else if (id == "txtFirstName" | id == "txtLastName") {
+                    check = /[A-Za-z\x00-\x1F\x7F]/;
+                }
+                else if (id == "txtOtherLanguages") {
+                    check = /[A-Za-z, \x00-\x1F\x7F]/;
+                }
+                else if (id == "txtEmailAdd") {
+                    check = /[a-zA-Z0-9\x00-\x1F\x7F.@_-]/;
+                }
+                else if (id == "txtBirthDate") {
+                    check = /[0-9\/\x00-\x1F\x7F]/;
+                }
+                else if (id == "txt10thPercentage" | id == "txt12thPercentage" | id == "txtGradPercentage") {
+                    check = /[0-9\/\x00-\x1F\x7F]/;
+                }
+                if (check != "" && check != undefined) {
+                    result = check.test(keychar);
+                }
+                return result;
+            });
+
+
+            $("#btnSubmit").click(function() {
+                if ($("#txtFirstName").val().trim() == "") {
+                    $("#txtFirstName").val("");
+                    jAlert("Please enter first name.", "First Name Required!", function() { $("#txtFirstName").focus(); });
+                    return false;
+                }
+                if ($("#txtLastName").val().trim() == "") {
+                    $("#txtLastName").val("");
+                    jAlert("Please enter last name.", "Last Name Required!", function() { $("#txtLastName").focus(); });
+                    return false;
+                }
+
+                if ($("#txtEmailAdd").val().trim() == "") {
+                    jAlert("Please enter email adddress.", "Email Required!", function() { $("#txtEmailAdd").focus(); });
+                    return false;
+                }
+                else {
+                    if (!checkEmail()) {
+                        jAlert("Please enter valid email address.", "Email!", function() { $("#txtEmailAdd").focus(); });
+                        return false;
+                    }
+                }
+
+
+                if ($("#txtBirthDate").val() == "") {
+                    jAlert("Please enter birth date.", "Birth Date Required!", function() { $("#txtBirthDate").focus(); });
+                    return false;
+                }
+                else {
+                    if (!checkDate($("#txtBirthDate").val())) {
+                        jAlert("Please enter valid birth date.", "Birth Date!", function() { $("#txtBirthDate").focus(); });
+                        return false;
+                    }
+                }
+
+
+                if (!$("#rdMale").attr('checked') && !$("#rdFemale").attr('checked')) {
+                    jAlert("Please select gender.", "Gender Required!");
+                    return false;
+                }
+
+                //                    var currDate = new Date();
+                //                    var minDate = new Date();
+                //                    var maxDate = new Date();
+                //                    var currDay = currDate.getDay();
+                //                    var currMonth = currDate.getMonth();
+                //                    var currYear = currDate.getYear();
+                //                    minDate.setFullYear(currYear - 112, currMonth, currDay);
+                //                    maxDate.setFullYear(currYear - 10, currMonth, currDay);
+                //                    var birthDate = Date.parse($("#txtBirthDate").val());
+                //                    if (birthDate < Date.parse(minDate) || birthDate > Date.parse(maxDate)) {
+                //                        jAlert("Please enter valid birth date.", "Birth Date!", function() { $("#txtBirthDate").focus(); });
+                //                        return false;
+                //                    }                    
+                //
+
+
+
+                if ($("#txtMobileNo").val() == "") {
+                    jAlert("Please Enter Contact number.", "Contact Number Required!", function() { $("#txtMobileNo").focus(); });
+                    return false;
+
+                }
+
+                //                if ($("#txtMobileNo").val() != "") {
+                //                    if (!checkMobile($("#txtMobileNo").val())) {
+                //                        jAlert("Please Enter valid Contact number.", "Invalid Contact Number!", function() { $("#txtMobileNo").focus(); });
+                //                        return false;
+                //                    }
+                //                }
+
+
+                if ($("#txtPuneAddress").val() == "") {
+                    jAlert("Please enter address.", "Address Required!", function() { $("#txtPuneAddress").focus(); });
+                    return false;
+                }
+
+                //                var reg1=/^[ \t]+$/;
+                //                debugger;
+                //                if (reg1 .test($ ("#txtPuneAddress").val())==true )
+                //                    return true;
+                //                else
+                //                    return false;
+
+
+
+
+                if ($("#ddlState").val() == "0") {
+                    jAlert("Please select state.", "State Required!", function() { $("#ddlState").focus(); });
+                    return false;
+                }
+
+
+                if (!$("#chkEnglish").attr('checked') && !$("#chkMarathi").attr('checked') && !$("#chkHindi").attr('checked') && !$("#chkOther").attr('checked')) {
+                    jAlert("Please select language.", "Language Required!");
+                    return false;
+                }
+                if ($("#chkOther").attr('checked')) {
+
+                    if ($("#txtOtherLanguages").val().trim() == "") {
+                        $("#txtOtherLanguages").val("");
+                        jAlert("Please Specify other language(s).", "Other Language(s) Required!", function() { $("#txtOtherLanguages").focus(); });
+                        return false;
+                    }
+
+                }
+
+                if ($("#chkOthers").attr('checked')) {
+
+                    if ($("#txtOtherTechSkills").val().trim() == "") {
+                        $("#txtOtherTechSkills").val("");
+                        jAlert("Please Specify other TechnicalSkill(s).", "Other TechnicalSkill(s) Required!", function() { $("#txtOtherTechSkills").focus(); });
+                        return false;
+                    }
+                }
+
+                if ($("#chkOSOthers").attr('checked')) {
+
+                    if ($("#txtOSOthers").val().trim() == "") {
+                        $("#txtOSOthers").val("");
+                        jAlert("Please Specify other OS(s).", "Other OS(s) Required!", function() { $("#txtOSOthers").focus(); });
+                        return false;
+                    }
+                }
+
+
+
+                if ($("#ddlEduQualification").val() == "0") {
+                    jAlert("Please select qualification.", "Qualification Required!", function() { $("#ddlEduQualification").focus(); });
+                    return false;
+                }
+
+
+                if ($("#ddlSpcl").val() == "0") {
+                    jAlert("Please select specialization.", "Specialization Required!", function() { $("#ddlSpcl").focus(); });
+                    return false;
+                }
+                if ($("#ddl10thYear").val() == "0") {
+                    jAlert("Please select 10th passing year.", "Year Required!", function() { $("#ddl10thYear").focus(); });
+                    return false;
+                }
+
+                if ($("#txt10thSchool").val().trim() == "") {
+                    $("#txt10thSchool").val("");
+                    jAlert("Please enter 10th school.", "Required!", function() { $("#txt10thSchool").focus(); });
+                    return false;
+                }
+                if ($("#txt10thBoard").val().trim() == "") {
+                    $("#txt10thBoard").val("");
+                    jAlert("Please enter 10th board.", "Required!", function() { $("#txt10thBoard").focus(); });
+                    return false;
+                }
+                if ($("#txt10thPercentage").val() == "") {
+                    jAlert("Please enter 10th percentage.", "Required!", function() { $("#txt10thPercentage").focus(); });
+                    return false;
+                }
+                if ($("#txt10thPercentage").val() <= 0) {
+                    jAlert("Please enter valid 10th percentage.", "Required!", function() { $("#txt10thPercentage").focus(); });
+                    return false;
+                }
+
+                if ($("#ddlGradYear").val() == "0") {
+                    jAlert("Please select graduation passing year.", "Year Required!", function() { $("#ddlGradYear").focus(); });
+                    return false;
+                }
+
+                if ($("#txtGradCollege").val().trim() == "") {
+                    $("#txtGradCollege").val("");
+                    jAlert("Please enter graduation college.", "Required!", function() { $("#txtGradCollege").focus(); });
+                    return false;
+                }
+                if ($("#txtGradUniversity").val().trim() == "") {
+                    $("#txtGradUniversity").val("");
+                    jAlert("Please enter graduation university.", "Required!", function() { $("#txtGradUniversity").focus(); });
+                    return false;
+                }
+                if ($("#txtGradPercentage").val() == "") {
+                    jAlert("Please enter graduation percentage.", "Required!", function() { $("#txtGradPercentage").focus(); });
+                    return false;
+                }
+                if ($("#txtGradPercentage").val() <= 0) {
+                    jAlert("Please enter valid graduation percentage.", "Required!", function() { $("#txtGradPercentage").focus(); });
+                    return false;
+                }
+                if ($('.techSkills').find(':checked').length <= 0) {
+                    jAlert("Please select technical skill(s).", "Technical Skill(s) Required!");
+                    return false;
+                }
+
+                if (!$("#chkWindows").attr('checked') && !$("#chkLinux").attr('checked') && !$("#chkOSOthers").attr('checked')) {
+                    jAlert("Please select operating system(s).", "Required!");
+                    return false;
+                }
+
+
+
+                if (!$("#rdFresher").attr('checked') && !$("#rdExperience").attr('checked')) {
+                    jAlert("Please specify are you fresher or experienced.", "Required!");
+                    return false;
+                }
+                if ($("#rdExperience").attr('checked')) {
+
+                    if ($("#ddlExpYear").val() == "0" && $("#ddlExpMonth").val() == "0") {
+                        jAlert("Please select total experience years or months.", "Required!", function() { $("#ddlExpYear").focus(); });
+                        return false;
+                    }
+                 
+                    if (!$("#rdWorkingYes").attr('checked') && !$("#rdWorkingNo").attr('checked')) {
+                        jAlert("Please select work status.", "Required!");
+                        return false;
+                    }
+                    var CurrentLast = "";
+                    if ($("#rdWorkingYes").attr('checked')) {
+                        CurrentLast = "Current";
+                    }
+                    else {
+                        CurrentLast = "Last";
+                    }
+
+                    if ($("#txtCompanyName").val().trim() == "") {
+                        $("#txtCompanyName").val("");
+                        jAlert("Please enter " + CurrentLast + " company name.", "Required!", function() { $("#txtCompanyName").focus(); });
+                        return false;
+                    }
+                    if ($("#txtDesignation").val().trim() == "") {
+                        $("#txtDesignation").val("");
+                        jAlert("Please enter " + CurrentLast + " designation.", "Required!", function() { $("#txtDesignation").focus(); });
+                        return false;
+                    }
+
+                    if ($("#ddlCTC").val() == "0") {
+                        jAlert("Please select " + CurrentLast + " Salary.", "Required!", function() { $("#ddlCTC").focus(); });
+                        return false;
+                    }
+
+
+                    if ($("#ddlExpSal").val() == "") {
+                        jAlert("Please select Expected Salary.", "Required!", function() { $("#ddlExpSal").focus(); });
+                        return false;
+                    }
+
+                    if ($("#ddlStartYear").val() == "0") {
+                        jAlert("Please select from year.", "Job Duration Required!", function() { $("#ddlStartYear").focus(); });
+                        return false;
+                    }
+                    if ($("#ddlStartMonth").val() == "0") {
+                        jAlert("Please select from month.", "Job Duration Required!", function() { $("#ddlStartMonth").focus(); });
+                        return false;
+                    }
+                    if ($("#ddlEndYear").val() == "0") {
+                        jAlert("Please select to year.", "Job Duration Required!", function() { $("#ddlEndYear").focus(); });
+                        return false;
+                    }
+                    if ($("#ddlEndMonth").val() == "0") {
+                        jAlert("Please select to month.", "Job Duration Required!", function() { $("#ddlEndMonth").focus(); });
+                        return false;
+                    }
+
+                    if ($("#txtLeaveReason").val().trim() == "") {
+                        $("#txtLeaveReason").val("");
+                        jAlert("Please enter Leave Reason", "Required!", function() { $("#txtLeaveReason").focus(); });
+                        return false;
+                    }
+
+
+                    if ($("#ddlStartYear").val() > $("#ddlEndYear").val()) {
+                        jAlert("End year should be greater than start year.", "Invalid Duration!", function() { $("#ddlEndYear").focus(); });
+                        return false;
+                    }
+                    else if ($("#ddlStartYear").val() == $("#ddlEndYear").val()) {
+                        var startmnth = parseInt($("#ddlStartMonth").val());
+                        var endmnth = parseInt($("#ddlEndMonth").val());
+                        if (startmnth >= endmnth) {
+                            jAlert("Please select valid end month.", "Invalid Duration!", function() { $("#ddlEndMonth").focus(); });
+                            return false;
+                        }
+                    }
+
+                }
+
+
+            });
+ function checkEmail() {
+            var email = document.getElementById('txtEmailAdd').value;
+            var errorMsg1 = "";
+            var errorMsg = "";
+           
+            var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            var address = email;
+            if (reg.test(address) == false) {
+                return false;
+            }
+            else
+                return true;
+        }
+
+
+     
+    </script>
+
+
+<script type="text/javascript" language="JavaScript">
+<!--
+//File upload button
+$(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+	$("#field_10" ).trigger( "focus" );
+	$("#field_10" ).trigger('keyup');
+	$("#field_11" ).trigger( "focus" );
+	$("#field_11" ).trigger('keyup');
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
+}); 
+// Phone allows for internatonal numbers and ext 
+jQuery.validator.addMethod("phone", function(phone_number, element) {
+    phone_number = phone_number.replace(/\s+/g, ""); 
+	return this.optional(element) || phone_number.length > 9 &&
+		phone_number.match(/^((\+)?[1-9]{1,2})?([-\s\.\(\)\])?((\(\d{1,4}\))|\d{1,4})(([-\s\.\(\)\])?[0-9]{1,12}){1,2}(\s*(ext|x)\s*\.?:?\s*([0-9]+))?$/);
+}, "Please specify a valid phone number");
+
+// Removes Error Message When reCaptcha is Checked Valid
+function recaptchaCallback() {
+  $('#hiddenRecaptcha').valid();
+};
+
+// Set Max File Attachment Size 
+$.validator.addMethod(
+    "maxfilesize",
+    function (value, element) {
+        return this.optional(element) || (element.files && element.files[0]
+                               && element.files[0].size < 1024 * 1024 * 4); // Set the * 4) 4MB to max mb and test
+    },
+    'Maximum file size limit is 4MB'
+);
+
+// Form Validation
+$(function () {
+   
+$("#frmFormMail").validate({
+        ignore: ".ignore",
+        
+        invalidHandler : function() {
+            $('html, body').animate({
+                scrollTop: $("#frmFormMail").offset().top // scroll top to your form on error
+            }, 'slow' );
+        },
+        // Specify the validation rules
+        rules: {
+            field_0: { // Name
+                required: true, // true required - false not required
+            },
+            field_1: { // Age
+                required: true,
+            },
+            field_2: { // Address
+                required: true,
+            },
+            field_3: { // City
+                required: true,
+            },
+            field_4: { // State
+                required: true,
+            },
+            field_5: { // Zip Post Code
+                required: true,
+            },
+            field_6: { // Select Job
+                required: true,
+            },
+            field_7: { // Job full part time
+                required: true,
+            },
+			field_8: { // Qualified - Experienced
+                required: true,
+            },
+            field_9: { // Empolyment start date
+                required: true,
+                minlength: 3,
+            },
+            field_10: { // Resume
+                required: true, // required: false not a required field, required: true required field
+                accept: "jpg|jpe|jpeg|png|gif|odt|doc|docx|pdf|txt|html", // Add file types you wish to accept
+                maxfilesize: true,  // Set false if unlimited size  
+            },
+            field_11: { // Resume
+                required: false, // required: false not a required field, required: true required field
+                accept: "jpg|jpe|jpeg|png|gif|odt|doc|docx|pdf|txt|html", // Add file types you wish to accept
+                maxfilesize: true,  // Set false if unlimited size  
+            },
+            field_12: { // Email
+                required: true,
+				email: true,
+                minlength: 5,
+            },
+            field_13: { // Phone
+                required: true,
+            },
+            field_14: { // Comments
+                required: true, // set to true if required
+            },
+			
+            hiddenRecaptcha: {
+                required: function () {
+                if (grecaptcha.getResponse() == '') {
+                     return true;
+                } else {
+                     return false;
+			    }
+			  }				
+           },
+       },
+        // Specify the validation error messages
+        messages: {
+	        field_10: {
+                required: "Required field", // Required will only show up if rules are set to true required above
+                accept: "File type is not accepted"
+            },
+			field_11: {
+	            required: "Required field", // Required will only show up if rules are set to true required above
+                accept: "File type is not accepted"
+            },
+			hiddenRecaptcha: {
+                required: "Human response required"
+            },
+			submitHandler: function(form) // CALLED ON SUCCESSFUL VALIDATION
+                {
+                window.location.replace='assets/redirect.html'; // Add your custom form submitted redirect page full path here the forward slash / will redirect to your home page
+			}
+        },
+   });
+
+});
+// Date Picker
+$(document).ready(function() {
+  $("input.datepicker").singleDatePicker();
+});
+
+$.fn.singleDatePicker = function() {
+  $(this).on("apply.daterangepicker", function(e, picker) {
+    picker.element.val(picker.startDate.format(picker.locale.format));
+  });
+  return $(this).daterangepicker({
+    locale: {
+      format: 'DD-MM-YYYY' // Change to local formats YYYY-MM-DD - MM-DD-YYYY
+    },
+    singleDatePicker: true,
+    autoUpdateInput: false
+  });
+};
+// Textarea Countdown
+function limitTextCount(limitField_id, limitCount_id, limitNum)
+{
+    var limitField = document.getElementById(limitField_id);
+    var limitCount = document.getElementById(limitCount_id);
+    var fieldLEN = limitField.value.length;
+
+    if (fieldLEN > limitNum)
+    {
+        limitField.value = limitField.value.substring(0, limitNum);
+    }
+    else
+    {
+        limitCount.innerHTML = (limitNum - fieldLEN) + ' Countdown';
+    }
+}
+// Submit button Please Wait... and loading gif
+$(function () {
+    $('#frmFormMail').submit(function () {
+        if($(this).valid()) {
+          $("#btn").val("Please Wait... ");
+		  $('#divMsg').show();
+        }
+    });
+});
+-->
+</script>
+<style type="text/css">
+<!--
+/* THIS FORM IS RESPONSIVE - MOBILE FRIENDLY */
+.margin {
+   margin:8px; /* Form outside margin */
+}
+.form-container{
+	max-width:800px; /* change this to get your desired form width */
+    width:100%;
+	margin: 0 auto;
+	border:solid 1px #CCCCCC; /* Remove outer border if wished */
+	padding:10px;
+	margin-top:5px;
+	margin-bottom:40px;
+	padding-bottom:30px;
+}
+.header {
+  font-size:24px;
+  font-weight:normal;
+  background-color:#950000; /* Header Backgroung Colour  */
+  color:white; /* Header Text Colour  */
+  max-width:100%;
+  padding:10px;
+}
+.sub-header {
+  font-size:20px;
+  font-weight:normal;
+  background-color:;
+  border-bottom:solid 1px #950000; /* Divider Border Colour  */
+  color:#950000; /* Sub-heading Text Text Colour  */
+  max-width:100%;
+  padding:5px;
+}
+/* Placeholder disappears on focus */
+input:focus::-webkit-input-placeholder  {color:transparent !IMPORTANT;}
+input:focus::-moz-placeholder   {color:transparent !IMPORTANT;}
+input:-moz-placeholder   {color:transparent !IMPORTANT;}
+textarea:focus::-webkit-input-placeholder  {color:transparent !IMPORTANT;}
+textarea:focus::-moz-placeholder   {color:transparent !IMPORTANT;}
+textarea:-moz-placeholder   {color:transparent !IMPORTANT;}
+textarea{ height:70px !IMPORTANT;}
+input[type="file"] {
+  color:#000 !IMPORTANT;    
+}
+input.file[type="text"] {
+  background-color:white !IMPORTANT;
+}
+.control-label {font-size:14px; font-weight:bold; margin-bottom:5px; !IMPORTANT;}
+.input-row {
+  display:block;
+  min-height:85px;
+  margin-bottom:-5px;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset !important; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333 !important;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset !important;
+    -webkit-text-fill-color: #333 !important;
+}
+-->
+</style>
+</head>
+<body>
+<div class="margin">
+  <div class="form-container">
+    <div class="header">JOB APPLICATION FORM</div>
+    <div>&nbsp;</div>
+    <form name="frmCandidateDetails" id="frmCandidateDetails" action='assets/jobformmail.php' method='post' enctype='multipart/form-data' autocomplete="on">
+      <input type='hidden' name='formmail_submit' value='Y'>
+      <input type='hidden' name='mod' value='ajax'>
+      <input type='hidden' name='func' value='submit'>
+      <!-- Left Column -->
+      <div class="section group">
+        <div class="col span_1_of_2">
+          <div class="sub-header">Personal Information</div>
+          <div>&nbsp;</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <div class="input-row">
+            <label class="control-label" for="txtFirstName">First Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txtFirstName" id="txtFirstName" oncopy="return false;" onpaste="return false;" oncut="return false;" value="" maxlength="50" class="form-control" placeholder="Your Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtFirstName" generated="true"></label>
+            </div>
+          </div>
+
+      
+
+           <div class="input-row">
+            <label class="control-label" for="txtLastName">Last Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input  name="txtLastName" type="text" maxlength="50" id="txtLastName" oncopy="return false;" onpaste="return false;" oncut="return false;" class="form-control" placeholder="Your Last Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtLastName" generated="true"></label>
+            </div>
+          </div>
+
+
+
+           <div class="input-row">
+            <label class="control-label" for="txtEmailAdd">Email<span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input  name="txtEmailAdd" type="Email" maxlength="150" id="txtEmailAdd"  class="form-control" placeholder="Your Email Address" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtEmailAdd" generated="true"></label>
+            </div>
+          </div>
+
+
+           <div class="input-row">
+            <label class="control-label" for="txtBirthDate">Birth Date <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="date" name="txtBirthDate" id="txtBirthDate" oncopy="return false" onpaste="return false" oncut="return false" value="" maxlength="50" class="form-control" placeholder="Date" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtBirthDate" generated="true"></label>
+            </div>
+          </div>
+
+         <div class="input-row">
+            <label class="control-label" for="gpGender"> Gender <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="gpGender" id="gpGender" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select Gender -</option>
+                  <option value="rdMale">Male</option>
+                  <option value="rdFemale">Female</option>
+               
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="gpGender" generated="true"></label>
+            </div>
+          </div>
+
+           <div class="input-row">
+            <label class="control-label" for="gpMaritalStatus"> Marital status <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="gpMaritalStatus" id="gpMaritalStatus" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Select Marital Status -</option>
+                  <option value="Married">Married</option>
+                  <option value="Unmarried">Unmarried</option>
+               
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="gpMaritalStatus" generated="true"></label>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <label class="control-label" for="txtMobileNo">Contact no <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input type="tel" name="txtMobileNo" id="txtMobileNo" oncopy="return false" onpaste="return false" oncut="return false" value="" maxlength="10" class="form-control" placeholder="Your Contact no" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; font-size:12px; margin-top:5px;" class="error" for="txtMobileNo" generated="true"></label>
+            </div>
+          </div>
+          
+          <div class="input-row">
+            <label class="control-label" for="txtAltMobNo">Alternate Contact no <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input type="tel" name="txtAltMobNo" id="txtAltMobNo"  oncopy="return false" onpaste="return false" oncut="return false"  value="" maxlength="10" class="form-control" placeholder="Your Alternate Contact no" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; font-size:12px; margin-top:5px;" class="error" for="txtAltMobNo" generated="true"></label>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <label class="control-label" for="txtPuneAddress">Present Address <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                <input type="textarea" rows="2" cols="20"  name="txtPuneAddress" id="txtPuneAddress" value="" maxlength="200" class="form-control" placeholder="Your Address" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtPuneAddress" generated="true"></label>
+            </div>
+          </div>
+
+           <div class="input-row">
+            <label class="control-label" for="ddlState"> Current State <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddlState" id="ddlState" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="selected" selected="selected">- Please Select State -</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands </option>
+                <option value="Andhra Pradesh">Andhra Pradesh </option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh </option>
+                <option value="Assam">Assam </option>
+                <option value="Bihar">Bihar </option>
+                <option value="Chandigarh">Chandigarh </option>
+                <option value="Chhatisgarh">Chhatisgarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli </option>
+                <option value="Daman and Diu">Daman and Diu </option>
+                <option value="Delhi">Delhi </option>
+                <option value="Goa">Goa </option>
+                <option value="Gujarat">Gujarat </option>
+                <option value="Haryana">Haryana </option>
+                <option value="Himachal Pradesh">Himachal Pradesh </option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir </option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka </option>
+                <option value="Kerala">Kerala </option>
+                <option value="Lakshadweep">Lakshadweep </option>
+                <option value="Madhya Pradesh">Madhya Pradesh </option>
+                <option value="Maharashtra">Maharashtra </option>
+                <option value="Manipur">Manipur </option>
+                <option value="Meghalaya">Meghalaya </option>
+                <option value="Mizoram">Mizoram </option>
+                <option value="Nagaland">Nagaland </option>
+                <option value="Orissa">Orissa </option>
+                <option value="Pondicherry">Pondicherry </option>
+                <option value="Punjab">Punjab </option>
+                <option value="Rajasthan">Rajasthan </option>
+                <option value="Sikkim">Sikkim </option>
+                <option value="Tamil Nadu">Tamil Nadu </option>
+                <option value="Tripura">Tripura </option>
+                <option value="Uttaranchal">Uttaranchal</option>
+                <option value="Uttar Pradesh">Uttar Pradesh </option>
+                <option value="West Bengal">West Bengal </option>
+               
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddlState" generated="true"></label>
+            </div>
+          </div>
+
+   <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Languages</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      English
+                        <div class="material-switch pull-right">
+                            <input id="chkEnglish" name="chkEnglish" type="checkbox"/>
+                            <label for="chkEnglish" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Hindi
+                        <div class="material-switch pull-right">
+                            <input id="chkHindi" name="chkHindi" type="checkbox"/>
+                            <label for="chkHindi" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Marathi
+                        <div class="material-switch pull-right">
+                            <input id="chkMarathi" name="chkMarathi" type="checkbox"/>
+                            <label for="chkMarathi" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        other
+                        <div class="material-switch pull-right">
+                            <input id="chkOther" name="chkOther" type="checkbox"/>
+                            <label for="chkOther" class="label-success"></label>
+                        </div>
+                    </li>
+                  
+                </ul>
+            </div>
+
+
+  <div class="input-row">
+            <label class="control-label" for="field_11">Attach Other File (optional)</label>
+            <div class="input-group">
+              <label class="input-group-btn"> <span class="btn btn-primary"> Browse
+              <input type="file" id="field_11" name="field_11" style="display: none;">
+              </span> </label>
+              <input type="text" class="form-control file" readonly>
+            </div>
+            <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="field_11" generated="true"></label>
+          </div>
+
+        </div>
+
+
+
+        <!-- Right Column -->
+        <div class="col span_1_of_2">
+          <div class="sub-header">Educational Details</div>
+          <div>&nbsp;</div>
+          <div class="input-row">
+            <label class="control-label" for="field_6"> Education Qualification <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddlEduQualification" id="ddlEduQualification" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="selected" selected="selected">- Please Select Option -</option>
+                 
+                 <option value="BTech">BTech</option>
+                  <option value="MTech">MTech</option>
+                  <option value="BE">BE</option>
+                  <option value="ME">ME</option>
+                  <option value="BCS">BCS</option>
+                  <option value="MCS">MCS</option>
+                  <option value="BCA">BCA</option>
+                  <option value="MCA">MCA</option>
+                  <option value="BSC">BSC</option>
+                  <option value="MSC">MSC</option>
+                  <option value="BBA">BBA</option>
+                  <option value="MBA">MBA</option>
+                  <option value="MCM">MCM</option>
+
+			
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddlEduQualification" generated="true"></label>
+            </div>
+          </div>
+
+
+          <div class="input-row">
+            <label class="control-label" for="field_7">Specialization <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddlSpcl" id="ddlSpcl" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select Option -</option>
+                  <option value="Acoustic">Acoustic</option>
+                    <option value="Aerospace">Aerospace</option>
+                    <option value="Aeronautical">Aeronautical</option>
+                    <option value="Agricultural">Agricultural</option>
+                    <option value="Automobiles">Automobiles</option>
+                    <option value="Biomedical">Biomedical</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Electronics and Tele Communication">Electronics and Tele Communication</option>
+                    <option value="Environmental">Environmental</option>
+                    <option value="Finance">Finance</option>
+                    <option value="General">General</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Human Rresources">Human Rresources</option>
+                    <option value="Industrial">Industrial</option>
+                    <option value="Instrumentation and Control">Instrumentation and Control</option>
+                    <option value="Marine">Marine</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Materials">Materials</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Metallurgical">Metallurgical</option>
+                    <option value="Mining">Mining</option>
+                    <option value="Naval Architecture">Naval Architecture</option>
+                    <option value="Nuclear">Nuclear</option>
+                    <option value="Ocean">Ocean</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Petroleum">Petroleum</option>
+                    <option value="Polymer">Polymer</option>
+                    <option value="Production">Production</option>
+                    <option value="Textile">Textile</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Other">Other</option>
+
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddlSpcl" generated="true"></label>
+            </div>
+          </div>
+
+            <div class="input-row">
+            <label class="control-label" for="ddl10thYear"> 10th std passing year <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddl10thYear" id="ddl10thYear" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select Year -</option>
+                 <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                             
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddl10thYear" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="txt10thSchool">School Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txt10thSchool" id="txt10thSchool" value="" maxlength="50" class="form-control" placeholder="Your School Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt10thSchool" generated="true"></label>
+            </div>
+          </div>
+
+            <div class="input-row">
+            <label class="control-label" for="txt10thBoard">Board Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txt10thBoard" id="txt10thBoard" value="" maxlength="50" class="form-control" placeholder="School Board Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt10thBoard" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="txt10thPercentage">School Pecentage <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                <input type="number" name="txt10thPercentage" oncopy="return false" onpaste="return false" oncut="return false"  min="0" max="100" step="1" class="form-control" placeholder="Your School Pecentage" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt10thPercentage" generated="true"></label>
+            </div>
+          </div>
+
+
+
+
+
+
+            <div class="input-row">
+            <label class="control-label" for="ddl12thYear"> 12th / Diploma passing year <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddl12thYear" id="ddl12thYear" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select Year -</option>
+                 <option value="1993">1993</option>
+              <option value="1994">1994</option>
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+                           
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddl12thYear" generated="true"></label>
+            </div>
+          </div>
+
+
+
+            <div class="input-row">
+            <label class="control-label" for="txt12thSchool">12th School Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txt12thSchool" id="txt12thSchool" value="" maxlength="50" class="form-control" placeholder="12th School Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thSchool" generated="true"></label>
+            </div>
+          </div>
+
+            <div class="input-row">
+            <label class="control-label" for="txt12thBoard">HSC Board Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txt12thBoard" id="txt12thBoard" value="" maxlength="50" class="form-control" placeholder="12th Board Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thBoard" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="txt12thPercentage">HSC Pecentage <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                <input type="number" name="txt12thPercentage" min="0" max="100" step="1" class="form-control" placeholder="Your 12th Pecentage" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thPercentage" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="ddlGradYear"> Graduation/Post Graduation passing year <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="ddlGradYear" id="ddlGradYear" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select Year -</option>
+                 <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                             
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="ddlGradYear" generated="true"></label>
+            </div>
+          </div>
+
+           <div class="input-row">
+            <label class="control-label" for="txtGradCollege">College Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txtGradCollege" id="txtGradCollege" value="" maxlength="50" class="form-control" placeholder="College Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtGradCollege" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="txtGradUniversity">University Name <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" name="txtGradUniversity" id="txtGradUniversity" value="" maxlength="50" class="form-control" placeholder="University Name" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtGradUniversity" generated="true"></label>
+            </div>
+          </div>
+
+
+            <div class="input-row">
+            <label class="control-label" for="txtGradPercentage">Degree Pecentage <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                <input type="number" name="txtGradPercentage" min="0" max="100" step="1" class="form-control" placeholder="Your 12th Pecentage" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtGradPercentage" generated="true"></label>
+            </div>
+          </div>
+
+
+          <div class="input-row">
+            <label class="control-label" for="field_10">Attach CV File <span style="color:red;">*</span></label>
+            <div class="input-group">
+              <label class="input-group-btn"> <span class="btn btn-primary"> Browse
+              <input type="file" id="field_10" name="field_10" style="display: none;">
+              </span> </label>
+              <input type="text" class="form-control file" readonly>
+            </div>
+            <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="field_10" generated="true"></label>
+          </div>
+        
+        </div>
+      </div>
+      <!-- Column Full Start -->
+      <div class="section group">
+        <div class="col span_1_of_1">
+          <div class="sub-header" style="margin-bottom:-15px;">Technical Details</div>
+        </div>
+        <!-- Column Left -->
+        <div class="section group">
+          <div class="col span_1_of_2">
+            <div class="input-row">
+              <div>&nbsp;</div>
+
+
+
+<div class="container">
+  <style type="text/css">
+    .material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+  </style>
+    <div class="row">
+        <div class=" col-md-4 ">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Technical Skills</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      C/C++
+                        <div class="material-switch pull-right">
+                            <input id="chkC" name="chkC" type="checkbox"/>
+                            <label for="chkC" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        C#
+                        <div class="material-switch pull-right">
+                            <input id="chkcSharp" name="chkcSharp" type="checkbox"/>
+                            <label for="chkcSharp" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        PHP
+                        <div class="material-switch pull-right">
+                            <input id="chkPHP" name="chkPHP" type="checkbox"/>
+                            <label for="chkPHP" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        HTML
+                        <div class="material-switch pull-right">
+                            <input id="chkHtml" name="chkHtml" type="checkbox"/>
+                            <label for="chkHtml" class="label-info"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        JavaScript
+                        <div class="material-switch pull-right">
+                            <input id="chkJavascript" name="chkJavascript" type="checkbox"/>
+                            <label for="chkJavascript" class="label-warning"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        VB.Net
+                        <div class="material-switch pull-right">
+                            <input id="chkvb" name="chkvb" type="checkbox"/>
+                            <label for="chkvb" class="label-danger"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                      Asp.Net
+                        <div class="material-switch pull-right">
+                            <input id="chkAsp" name="chkAsp" type="checkbox"/>
+                            <label for="chkAsp" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Core Java
+                        <div class="material-switch pull-right">
+                            <input id="chkCoreJava" name="chkCoreJava" type="checkbox"/>
+                            <label for="chkCoreJava" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        MySql
+                        <div class="material-switch pull-right">
+                            <input id="chkMySql" name="chkMySql" type="checkbox"/>
+                            <label for="chkMySql" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Orcale\PL-SQL
+                        <div class="material-switch pull-right">
+                            <input id="chkOracle" name="chkOracle" type="checkbox"/>
+                            <label for="chkOracle" class="label-info"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        SQL Server
+                        <div class="material-switch pull-right">
+                            <input id="chkSQL" name="chkSQL" type="checkbox"/>
+                            <label for="chkSQL" class="label-warning"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Android
+                        <div class="material-switch pull-right">
+                            <input id="chkAndroid" name="chkAndroid" type="checkbox"/>
+                            <label for="chkAndroid" class="label-danger"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Testing
+                        <div class="material-switch pull-right">
+                            <input id="chkTesting" name="chkTesting" type="checkbox"/>
+                            <label for="chkTesting" class="label-warning"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Other Technical skills
+                        <div class="material-switch pull-right">
+                            <input id="chkOthers" name="chkOthers" type="checkbox"/>
+                            <label for="chkOthers" class="label-danger"></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>     
+                   <div class="input-row">
+            <label class="control-label" for="field_6"> Fresher / Experienced <span style="color:red;">*</span></label>
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                <select name="grExperiance" id="grExperiance" class="form-control">
+                  <!-- Add take away change options - change text twice per option to show in email results -->
+                  <option value="" selected="selected">- Please Select -</option>
+                   <option value="rdFresher">Fresher</option>
+                  <option value="rdExperience">Experienced</option>
+ 
+                </select>
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="field_6" generated="true"></label>
+            </div>
+          </div>     
+
+            <div class="input-row">
+            <label class="control-label" for="txtInterestArea">Area of Interest <span style="color:red;">*</span></label>
+           
+            <div class="inputGroupContainer">
+              <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                <input type="text" name="txtInterestArea" id="txtInterestArea" value="" maxlength="50" class="form-control" placeholder="Area of Interest" onKeyPress="return restrictChars(event, this)">
+              </div>
+              <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txtInterestArea" generated="true"></label>
+            </div>
+          </div> 
+        </div>
+    
+
+
+
+
+
+  <style type="text/css">
+    .material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+  </style>
+        <div class=" col-md-4 ">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Operating System</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      Windows
+                        <div class="material-switch pull-right">
+                            <input id="chkWindows" name="chkWindows" type="checkbox"/>
+                            <label for="chkWindows" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Linux
+                        <div class="material-switch pull-right">
+                            <input id="chkLinux" name="chkLinux" type="checkbox"/>
+                            <label for="chkLinux" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Other OS
+                        <div class="material-switch pull-right">
+                            <input id="chkOSOthers" name="chkOSOthers" type="checkbox"/>
+                            <label for="chkOSOthers" class="label-success"></label>
+                        </div>
+                    </li>
+       
+                   
+                </ul>
+            </div>   
+
+
+              <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Certifiaction</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      Microsoft Certification
+                        <div class="material-switch pull-right">
+                            <input id="chkMicrosoft" name="chkMicrosoft" type="checkbox"/>
+                            <label for="chkMicrosoft" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Java Certification
+                        <div class="material-switch pull-right">
+                            <input id="chkSun" name="chkSun" type="checkbox"/>
+                            <label for="chkSun" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        PL/SQL Certification
+                        <div class="material-switch pull-right">
+                            <input id="chkOracleC" name="chkOracleC" type="checkbox"/>
+                            <label for="chkOracleC" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        ISTQB
+                        <div class="material-switch pull-right">
+                            <input id="chkISTQB" name="chkISTQB" type="checkbox"/>
+                            <label for="chkISTQB" class="label-success"></label>
+                        </div>
+                    </li>
+                   <li class="list-group-item">
+                        CSTE
+                        <div class="material-switch pull-right">
+                            <input id="chkCSTE" name="chkCSTE" type="checkbox"/>
+                            <label for="chkCSTE" class="label-success"></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+
+              <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Training</div>
+            
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      C#
+                        <div class="material-switch pull-right">
+                            <input id="chkCSharpT" name="chkCSharpT" type="checkbox"/>
+                            <label for="chkCSharpT" class="label-default"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Java
+                        <div class="material-switch pull-right">
+                            <input id="chkJavaT" name="chkJavaT" type="checkbox"/>
+                            <label for="chkJavaT" class="label-primary"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                      ASP.Net
+                        <div class="material-switch pull-right">
+                            <input id="chkAspT" name="chkAspT" type="checkbox"/>
+                            <label for="chkAspT" class="label-success"></label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        PHP
+                        <div class="material-switch pull-right">
+                            <input id="chkPHPT" name="chkPHPT" type="checkbox"/>
+                            <label for="chkPHPT" class="label-success"></label>
+                        </div>
+                    </li>
+                   <li class="list-group-item">
+                        PL/SQL
+                        <div class="material-switch pull-right">
+                            <input id="chkPlSqlT" name="chkPlSqlT" type="checkbox"/>
+                            <label for="chkPlSqlT" class="label-success"></label>
+                        </div>
+                    </li>
+                      <li class="list-group-item">
+                        Manual Testing
+                        <div class="material-switch pull-right">
+                            <input id="chkManualT" name="chkManualT" type="checkbox"/>
+                            <label for="chkManualT" class="label-success"></label>
+                        </div>
+                    </li>
+                   <li class="list-group-item">
+                        Automation Testing
+                        <div class="material-switch pull-right">
+                            <input id="chkAutoT" name="chkAutoT" type="checkbox"/>
+                            <label for="chkAutoT" class="label-success"></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+             
+            </div>
+          </div>
+          <!-- Column Right -->
+          <div class="col span_1_of_2">
+            <div>&nbsp;</div>
+           
+          </div>
+        </div>
+      </div>
+      <!-- Column End -->
+      <!-- Full Column -->
+      <div class="section group">
+        <div class="col span_1_of_1" style="margin-top:-15px;">
+          
+          <div>&nbsp;</div>
+          <div style="display:block; min-height:150px; margin-top:-5px;">
+            <div class="sub-header">Projects</div>
+                      <div>&nbsp;</div>
+
+              <div class="input-row" style="margin-bottom:-40px;">
+            
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="card">
+                        <div class="card-header">
+                          <h3 align="center">Project</h3>
+                        </div>
+                        <div class="card-body">
+                           <div class="input-row">
+                              <label class="control-label" for="txt12thSchool">Project name<span style="color:red;">*</span></label>
+                             
+                              <div class="inputGroupContainer">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                                  <input type="text" name="txt12thSchool" id="txt12thSchool" value="" maxlength="50" class="form-control" placeholder="Project name" onKeyPress="return restrictChars(event, this)">
+                                </div>
+                                <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thSchool" generated="true"></label>
+                              </div>
+                            </div>
+
+
+                            <div class="input-row">
+                              <label class="control-label" for="txt12thSchool">Project duration<span style="color:red;">*</span></label>
+                             
+                              <div class="inputGroupContainer">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                  <input type="text" name="txt12thSchool" id="txt12thSchool" value="" maxlength="50" class="form-control" placeholder="Project duration" onKeyPress="return restrictChars(event, this)">
+                                </div>
+                                <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thSchool" generated="true"></label>
+                              </div>
+                            </div>
+
+                            <div class="input-row">
+                              <label class="control-label" for="txt12thSchool">Role<span style="color:red;">*</span></label>
+                             
+                              <div class="inputGroupContainer">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                  <input type="text" name="txt12thSchool" id="txt12thSchool" value="" maxlength="50" class="form-control" placeholder="Role" onKeyPress="return restrictChars(event, this)">
+                                </div>
+                                <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thSchool" generated="true"></label>
+                              </div>
+                            </div>
+
+                            <div class="input-row">
+                              <label class="control-label" for="txt12thSchool">Project description<span style="color:red;">*</span></label>
+                             
+                              <div class="inputGroupContainer">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+                                  <input type="text" name="txt12thSchool" id="txt12thSchool" value="" maxlength="50" class="form-control" placeholder="Project description" onKeyPress="return restrictChars(event, this)">
+                                </div>
+                                <label style="color:red; font-weight:normal; font-size:12px; margin-top:5px;" class="error" for="txt12thSchool" generated="true"></label>
+                              </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                          <input type="submit" value="Add more" name="new" class="form-control btn btn-primary" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+            <div class="inputGroupContainer">
+              <!-- For blue button change btn-default to btn-primary - You can remove button width:100%; to standard size -->
+              <input type="submit" name="btnSubmit" value="Submit" id="btnSubmit" class="btn btn-success btn-lg">
+          <div id="divMsg" style="display:none;"><img src="assets/img/loading-bar.gif" alt="Please wait.." width="160" /></div>
+            </div>
+          </div>
+          </div>
+        
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
